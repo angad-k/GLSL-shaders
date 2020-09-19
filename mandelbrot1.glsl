@@ -31,6 +31,6 @@ void main()
     vec2 count = mandelbrot(uv, time);
     vec2 count2 = mandelbrot(count + 0.5*sin(iTime*0.1), time);
     vec2 count3 = mandelbrot(count + 0.5*cos(iTime*0.1), time);
-    vec4 color = vec4(length(count) + 0.1 ,length(count2) + 0.1, length(count3) + 0.1, 1.0);
+    vec4 color = vec4(length(count)*4.0,length(count2)*4.0, length(count3)*4.0, 1.0);
     gl_FragColor = color;
 }
