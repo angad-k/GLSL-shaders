@@ -12,12 +12,13 @@ float rand(vec2 co){
 void main()
 {
     vec2 uv = gl_FragCoord.xy/max(iResolution.x, iResolution.y);
-    vec2 mp = iMouse.xy/max(iResolution.x, iResolution.y);
-    mp = vec2(sin(iTime)*0.25, cos(iTime)*0.25) + 0.5;
+    
+    vec2 mp = vec2(sin(iTime)*0.25, cos(iTime)*0.25) + 0.5;
     vec2 offset = uv - mp;
     offset /= length(offset)*max(iResolution.x, iResolution.y);
     offset *= 10.0;
     uv -= offset;
+    
     vec2 mp2 = vec2(sin(iTime + 1.57079632679)*0.25, cos(iTime + 1.57079632679)*0.25) + 0.5;
     vec2 offset2 = uv - mp2;
     offset2 /= length(offset2)*max(iResolution.x, iResolution.y);
@@ -28,8 +29,20 @@ void main()
     vec2 offset3 = uv - mp3;
     offset3 /= length(offset3)*max(iResolution.x, iResolution.y);
     offset3 *= 10.0;
-    uv -= offset3;
+    uv -= offset3; 
 
+
+    vec2 mp4 = vec2(sin(iTime + 4.712388)*0.25, cos(iTime + 4.712388)*0.25) + 0.5;
+    vec2 offset4 = uv - mp4;
+    offset4 /= length(offset4)*max(iResolution.x, iResolution.y);
+    offset4 *= 10.0;
+    uv -= offset4; 
+
+    vec2 mp5 = iMouse.xy/max(iResolution.x, iResolution.y);
+    vec2 offset5 = uv - mp5;
+    offset5 /= length(offset5)*max(iResolution.x, iResolution.y);
+    offset5 *= 20.0;
+    uv -= offset5;
     vec2 st = uv*15.0;
 
     st = fract(st);
